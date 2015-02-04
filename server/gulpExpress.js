@@ -86,14 +86,14 @@ function Get(req, res) {
     endpoint = splitPath[splitPath.length - 2];
   }
 
-  console.log(endpoint, req.params[0], splitPath);
+
 
   if (splitPath[1]) {
     endpoint = splitPath[1]
   } else {
     endpoint = 'default'
   }
-
+  console.log('Get from> ' + endpoint);
   try {
     mockResponse =
       JSON.parse(fs.readFileSync(mockPath + '/' + endpoint + '.json'));
@@ -109,7 +109,7 @@ function Get(req, res) {
 
 // for gets == get json file from /data directory
 app.get(config.rest_base_url, function(req, res) {
-  console.log('getting>');
+  console.log('getting>' + JSON.stringify(req.params));
   Get(req, res);
 });
 

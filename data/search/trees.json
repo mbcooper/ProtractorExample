@@ -1,0 +1,349 @@
+{
+  "search": {
+    "search_query": "trees",
+    "current_page": 1,
+    "per_page": 21,
+    "pages": 1,
+    "total": 21,
+    "results": [
+      {
+        "name": "INB:www.bioinfo.uma.es:runCreateTreeFromClustalw",
+        "description": "Authority: www.bioinfo.uma.es  -  Produces a phylogenetic tree with dnd format from a ClustalW multiple alignment",
+        "submitter": "https://www.biocatalogue.org/users/397",
+        "created_at": "2010-03-10T12:05:12Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:29:02Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/2516"
+      },
+      {
+        "name": "Hogenom",
+        "description": "<a href=\"http://pbil.univ-lyon1.fr/databases/hogenom.php\">HOGENOM</a> is a database of homologous genes from fully sequenced organisms, structured under ACNUC sequence database management system. It allows to select sets of homologous genes among species,",
+        "submitter": "https://www.biocatalogue.org/users/396",
+        "created_at": "2009-06-26T11:39:47Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T11:57:28Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/2031"
+      },
+      {
+        "name": "roseImplementationService",
+        "description": "Rose (Random model Of Sequence Evolution) implements a new probabilistic model of the evolution of RNA, DNA, or protein-like sequences.\r\nGuided by an evolutionary tree, a family of related sequences is created from a common ancestor sequence by insertion,",
+        "submitter": "https://www.biocatalogue.org/registries/2",
+        "created_at": "2009-05-06T11:35:26Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T11:17:34Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/1446"
+      },
+      {
+        "name": "ClustalW2 Phylogeny (SOAP)",
+        "description": "Create Neighbor-joining or UPGMA phylogentic trees from a multiple sequence alignment using ClustalW. This service separates the phylogeny features of ClustalW from the multiple sequence alignment functionality (http://www.biocatalogue.org/services/2182).",
+        "submitter": "https://www.biocatalogue.org/users/655",
+        "created_at": "2011-03-01T11:47:56Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:41:44Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/2780"
+      },
+      {
+        "name": "ClustalW2 Phylogeny (REST)",
+        "description": "Create Neighbor-joining or UPGMA phylogentic trees from a multiple sequence alignment using ClustalW. This service separates the phylogeny features of ClustalW from the multiple sequence alignment functionality (http://www.biocatalogue.org/services/2182).",
+        "submitter": "https://www.biocatalogue.org/users/655",
+        "created_at": "2011-09-19T13:31:52Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "REST"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:42:34Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/3139"
+      },
+      {
+        "name": "Phylogenetics_AT_JST",
+        "description": "#Documentation for the use of the service\nAll the asynchronous services (services which have long run runtime) that were developed ex-novo within BioVeL have the same interface. \n\nFor each service provider ( i.e. [INFN][3]) 3 types of endpoint exists:\n[3]: https://www.biodiversitycatalogue.org/services/31\n\n\n 1.  job submission,\n 2.  job retrieval,\n 3.  multiple jobs retrieval.\n\n##Job submission\nThe _job submission_ endpoint has four parameters:\n\n 1. _name_ --- required\n 2. _arguments_ --- required\n 3.  _sessionid_ --- optional\n 4.  _email_ --- optional\n\n_name_ differentiates the different types of work. A different entry in Biodiversity catalogue exist for each possible value of name. Within this entry the details of the formatting for the body of _argument_s are given.\n\n_arguments_ give the information. Data are given as URL(s) . Multiple submission are divided by \";\" within the body of _arguments_.\n\n##Job retrieval\n\nThe endpoint to collect results of a single job has one parameter, _jobid_, obtained in the reply of the submission. The reply is for example:\n\n    <Jobs>\n        <Job>\n        <Arguments> http://webtest.ba.infn.it/vicario/FinalFusariumDB_2.nex 5700.fa 10589.fbsse se selknlk noiho niooih r </Arguments>\n        <Comment>interactive</Comment> \n        <CPUs>7</CPUs>\n        <Flag>2dbbd030-2803-43c0-a21d-369a21e17f2b</Flag>\n        <Id>349177</Id> \n        <LastCheck>2011-11-18 12:54:01.0</LastCheck>\n       <Name>MyBlasts</Name> \n       <Output/> <Provenance/>\n       <Status>free</Status>\n       </Job>\n    </Jobs>\n\n##Multiple jobs retrieval\nThe endpoint to collect results of several jobs submitted in the same _argument_ body use the _Flag_ value obtained as reply to submission. The reply is identical to previous service only that several tag _Job_ exist\n\nThe cited taverna components are looking for these paths within the reply:\n\n 1. `/Jobs/Job/Status` to check if is equal to `done`.\n 2. `/Jobs/Job/Output` to collect the body that could be or an xml or url or a base64 encoded string. Generally is a URL with bulk information not relevant for the taverna engine but to pass on to next webservice.\n 3. `/Jobs/Job/StandardOutput` to collect the body that could be or an xml or url or a base64 encoded string. Generally is a XML with information to be processed within the taverna engine\n 4. `/Jobs/Job/StandardError` to collect the body that is a base64 encoded string with all relevant info for debug error\n\n##Use of the service within a Taverna workflow engine\nThe service presented are embedded within workflow and component. Components are workflow ready to be reused in other workflow.\nTwo components ( [ JSTAsync1][1], [JSTAsync2][2]) with the different endpoints of this service, depending if the endpoint use base64 encoding the standardoutput. The taverna schema of the two components is here shown. The top blue box is the call to the submit job endpoint, while the second blue box within the nested workflow is the repeated request of retrieval to the single job retrieval endpoint. The four yellow box use XPath to extract the 4 already cited path from the XML of reply.\n  [1]: http://www.myexperiment.org/workflows/3941.html\n  [2]: http://www.myexperiment.org/workflows/3940.html\n\n\n![Medium][4]![Medium][5]\n\n   [4]: http://www.myexperiment.org/workflows/3941/versions/3/previews/medium\n   [5]: http://www.myexperiment.org/workflows/3940/versions/5/previews/medium\n\nThis two generic component workflow are then used in a series of specialized component workflow that format correctly the argument body and parse the outputs for downstream applications.\n\nHere the table of all services linked to biodiversity catalogue, with link to specialized component and the meaning of the body of the tag _StandardOuput_ and _Output_. The tag _StandardError_ gives always the last 200 lines of the standardouput + standarderror stream of the unix process, always base64 encoded.\n\n|Name             |Wiki|Component WF| Ouput             |StandardOuput                     | base64 encoded?|\n|---------------------|----|------------|-------------------|----------------------------------|----------------|\n|[consensus_xml][6]   |Link|[Link][7]   |URL of targz folder|XML with tag tree for each newick | False          |\n|[MrBayesPPtest][8]   |Link|[Link][9]   |URL of targz folder|XML with description attributes   | False          |\n|[itol][10]           |[Link][11]|[Link][12]|URL of targz folder|url to see tree in ITOL website|True           |\n|[MrBayes_16CPUs][13] |[Link][14]|[Link][15]|URL of targz folder| list file of previous URL    | False          |\n|[PartitionFinder][16]|Link|[Link][17]  |URL of targz folder|best model description in text    | True           |\n|[geoks_xml][18]      |Link|[Link][19]  |URL of targz folder|XML with description attributes   | false|\n|[phyloH][20]|wiki | [Link][21]|URL of targz folder|| Html output| false|\n\n\n   [6]: https://www.biodiversitycatalogue.org/rest_methods/144\n   [7]: http://www.myexperiment.org/workflows/3946.html\n   [8]: https://www.biodiversitycatalogue.org/rest_methods/116\n   [9]: http://www.myexperiment.org/workflows/3952.html\n   [10]: https://www.biodiversitycatalogue.org/rest_methods/136\n   [11]: /display/doc/VisualizationTree@Itol\n   [12]: http://www.myexperiment.org/workflows/3947.html\n   [13]: https://www.biodiversitycatalogue.org/rest_methods/114\n   [14]: /display/doc/MrBayes_16CPUs\n   [15]: http://www.myexperiment.org/workflows/3944.html\n   [16]: https://www.biodiversitycatalogue.org/rest_methods/117\n   [17]: http://www.myexperiment.org/workflows/3943.html\n   [18]: https://www.biodiversitycatalogue.org/rest_methods/115\n   [19]: http://www.myexperiment.org/workflows/3945.html\n   [20]: https://www.biodiversitycatalogue.org/rest_methods/143\n  [21]: http://www.myexperiment.org/workflows/4286.html",
+        "submitter": "https://www.biocatalogue.org/users/1076",
+        "created_at": "2014-06-19T09:12:04Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "REST"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:49:27Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/3718"
+      },
+      {
+        "name": "runPhylipDnamlk",
+        "description": "Estimates phylogenies from nucleotide sequences by maximum likelihood under the constraint that the trees estimated must be consistent with a molecular clock.",
+        "submitter": "https://www.biocatalogue.org/users/211",
+        "created_at": "2011-11-04T16:07:48Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:43:14Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/3185"
+      },
+      {
+        "name": "rociImplementationService",
+        "description": "Roci (Reconstruction of Conserved Intervals) reconstructs ancestral gene orders of a phylogenetic tree. Given the topology of a phylogenetic tree and the gene orders of the leaf nodes, it calculates sets of gene orders for the inner nodes, represented by ",
+        "submitter": "https://www.biocatalogue.org/registries/2",
+        "created_at": "2009-05-06T11:35:14Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T11:17:33Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/1442"
+      },
+      {
+        "name": "INB:bioinfo.cipf.es:displayClustering",
+        "description": "Authority: bioinfo.cipf.es  -  This service returns a GIF image representing a tree of clusters including their profiles. In addition, an URL to the image is returned in the output field 'legend'",
+        "submitter": "https://www.biocatalogue.org/users/397",
+        "created_at": "2010-03-10T12:01:20Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:27:27Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/2491"
+      },
+      {
+        "name": "INB:inb.bsc.es:runPhylipDnamlk",
+        "description": "Authority: inb.bsc.es  -  Estimates phylogenies from nucleotide sequences by maximum likelihood under the constraint that the trees estimated must be consistent with a molecular clock.",
+        "submitter": "https://www.biocatalogue.org/users/397",
+        "created_at": "2010-03-10T12:14:10Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:33:03Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/2557"
+      },
+      {
+        "name": "RNAforesterImplementationService",
+        "description": "RNAforester is a command line based tool for comparing RNA secondary structures. It supports the computation of pairwise and multiple alignment of structures based on the tree alignment model (http://bibiserv.techfak.uni-bielefeld.de/rnaforester/diss_hoec",
+        "submitter": "https://www.biocatalogue.org/users/2",
+        "created_at": "2008-12-11T14:13:21Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T11:08:11Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/64"
+      },
+      {
+        "name": "Hogenom_tree",
+        "description": "Hogenom_tree is a set of webservices allowing to browse Hogenom 4 phylogenetic tree. It includes\n<ul>\n    <li> NearestNodeHogenom : takes an NCBI taxID and returns the closest taxID present in Hogenom</li>\n    <li> GetParentHogenom : takes a taxID present",
+        "submitter": "https://www.biocatalogue.org/users/396",
+        "created_at": "2009-06-26T11:32:04Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T11:48:32Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/1992"
+      },
+      {
+        "name": "ProDomCG_tree",
+        "description": "ProdomCG_tree is a set of webservices allowing to browse ProDom-CG267 phylogenetic tree. It includes \n<ul>\n<li>NearestNodeProdom : takes an NCBI taxID and returns the closest taxID present in ProdomCG</li>\n<li>GetParentProdom : takes a taxID present in Pr",
+        "submitter": "https://www.biocatalogue.org/users/396",
+        "created_at": "2009-06-26T11:32:25Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T11:48:33Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/1994"
+      },
+      {
+        "name": "The ELM Resource Conservation Filter",
+        "description": "This  WSDL file describe the Conservation Score Web Service. \n\t    It calculates the conservation of ELM matches in a set of homologous sequences.\n            ",
+        "submitter": "https://www.biocatalogue.org/users/387",
+        "created_at": "2009-06-26T11:37:53Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "WARNING",
+          "message": "Some or all of the tests for this service did not succeed<p><ul><li> Could not access <b>endpoint </b>.</li>\n</ul></p>",
+          "symbol": "https://www.biocatalogue.org/assets/pling-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-pling-sphere-50.png",
+          "last_checked": "2015-02-04T11:57:25Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/2028"
+      },
+      {
+        "name": "MUSCLE (SOAP)",
+        "description": "MUSCLE (MUltiple Sequence Comparison by Log-Expectation) 1) is claimed to achieve both better average accuracy and better speed than ClustalW or T-Coffee, depending on the chosen options. Multiple alignments of protein sequences are important in many applications, including phylogenetic tree estimation, secondary structure prediction and critical residue identification.\n",
+        "submitter": "https://www.biocatalogue.org/users/259",
+        "created_at": "2010-03-08T10:38:00Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:02:37Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/2185"
+      },
+      {
+        "name": "run",
+        "description": "Submit an analysis job",
+        "parameter_order": "",
+        "created_at": "2014-08-06T18:26:40Z",
+        "archived_at": null,
+        "resource": "https://www.biocatalogue.org/soap_operations/39615"
+      },
+      {
+        "name": "INB-dev:cnio.es:runSLR",
+        "description": "Authority: cnio.es  -  SLR (http://www.ebi.ac.uk/goldman/SLR/) is a program to detect sites in coding DNA that are unusually conserved and/or unusually variable (that is, evolving under purify or positive selection) by analysing the pattern of changes for an alignment of sequences on an evolutionary tree. It is developed by 'Goldman Group' (EMBL - European Bioinformatics Institute).",
+        "submitter": "https://www.biocatalogue.org/users/397",
+        "created_at": "2010-03-10T11:48:45Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:23:02Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/2417"
+      },
+      {
+        "name": "run",
+        "description": "Submit an analysis job",
+        "parameter_order": "",
+        "created_at": "2014-08-06T20:39:19Z",
+        "archived_at": null,
+        "resource": "https://www.biocatalogue.org/soap_operations/40678"
+      },
+      {
+        "name": "NearestNodeHogenom",
+        "description": "Takes an NCBI taxID and returns the closest taxID present in the Hogenom tree",
+        "parameter_order": "",
+        "created_at": "2014-08-06T18:15:47Z",
+        "archived_at": null,
+        "resource": "https://www.biocatalogue.org/soap_operations/39113"
+      },
+      {
+        "name": "NearestNodeProdom",
+        "description": "Takes an NCBI taxID and returns the closest taxID present in the ProdomCG tree",
+        "parameter_order": "",
+        "created_at": "2014-08-06T18:15:49Z",
+        "archived_at": null,
+        "resource": "https://www.biocatalogue.org/soap_operations/39124"
+      },
+      {
+        "name": "GLprobsWS",
+        "description": "GLProbs is a simple and effective approach to improve the accuracy of multiple sequence alignment. We use a natural measure to estimate the similarity of the input sequences, and based on this measure, we align the input sequences differently. To test the effectiveness of this approach, we have implemented a multiple sequence alignment tool called GLProbs and compared its performance with a dozen leading alignment tools on three benchmark alignment databases, and GLProbs’s alignments has the best scores in almost all testings. We have also evaluated the practicability of the alignments of GLProbs by applying the tool to three biological applications, namely phylogenetic trees construction, protein secondary structure prediction and the detection of high risk members for cervical cancer in the HPV-E6 family, and the results are very encouraging.",
+        "submitter": "https://www.biocatalogue.org/users/1067",
+        "created_at": "2014-06-17T14:32:19Z",
+        "archived_at": null,
+        "service_technology_types": [
+          "SOAP"
+        ],
+        "latest_monitoring_status": {
+          "label": "PASSED",
+          "message": "All tests were successful for this service",
+          "symbol": "https://www.biocatalogue.org/assets/tick-sphere-50.png",
+          "small_symbol": "https://www.biocatalogue.org/assets/small-tick-sphere-50.png",
+          "last_checked": "2015-02-04T12:49:22Z"
+        },
+        "resource": "https://www.biocatalogue.org/services/3710"
+      }
+    ]
+  }
+}

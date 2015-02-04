@@ -12,22 +12,22 @@ angular.module('sampleProtractor.services.bio', [
      *
      **/
 
-    var url = 'https://www.biocatalogue.org/search.json?q=';
+    var url = 'api/search/';
 
-    var search = function() {
+    var search = function(term) {
       var defer = $q.defer();
-
+      var searchUrl = url + term;
       $http(
         {
           method: 'GET',
-          url: url,
+          url: searchUrl,
           isArray: true,
           cache: false
         }
       )
         .success(function(responses) {
           var bios = [];
-          _.each(responses, function(dto) {
+          _.each(responses.search.results, function(dto) {
             var bio = new Bio();
             bio.fromDTO(dto);
             bios.push(bio);
