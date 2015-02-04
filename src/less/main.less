@@ -1,0 +1,12 @@
+/**
+ * This is the main application stylesheet. It should include only local
+ * style sheets
+ * The gulp task will load the vendor css (in buildConfig.js) before these,
+ * so these will override vendor settings
+ */
+
+@import 'variables.less';
+/**
+ * This is our main variables file. We must include it last so we can overwrite any variable
+ * definitions in our imported stylesheets.
+ */

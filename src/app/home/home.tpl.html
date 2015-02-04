@@ -1,0 +1,59 @@
+<div>
+    <div class="row">
+        <h3 class="col-lg-offset-1">Bio term Search</h3>
+
+
+        <div class="col-lg-offset-1 col-lg-4 col-md-offset-1 ">
+            <div ng-show="home.alert"
+                 class="alert alert-danger" role="alert">
+                {{home.alert}}
+            </div>
+            <form name="search" class="form-inline">
+                <label for="searchTerm">Search: </label>
+                <input type="text"
+                       class="form-control inline"
+                       name="searchTerm"
+                       ng-minlength="1"
+                       ng-maxlength="20"
+                       ng-pattern="home.searchPattern"
+                       ng-model="home.search"
+                       id="searchTerm" placeholder="Search term .. (food, etc)">
+                <button id="searchButton"
+                        ng-disabled="search.searchTerm.$invalid"
+                        class="btn btn-success inline"
+                        ng-click="home.makeSearch()"
+                        type="button">Search
+                </button>
+                <div ng-messages="search.searchTerm.$error">
+                    <div class="error"
+                         ng-message="maxlength">
+                        Cannot Exceed 20 characters
+                    </div>
+                    <div class="error"
+                         ng-message="pattern">
+                        Numbers and Letters Only
+                    </div>
+                </div>
+
+            </form>
+            <br/><br/>
+            <table class="table table-striped table-condensed table-bordered"
+                   ng-show="home.results.length !== 0">
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td>{{home.identity.fullName}}</td>
+                </tr>
+                <tr>
+                    <td><strong>FA Number</strong></td>
+                    <td>{{home.identity.primaryFaNumber}}</td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+<div class=" col-lg-offset-2  col-lg-8 spinnerCover"
+     ng-show="home.isLoading">
+    <i class="fa fa-cog fa-spin fa-4x"></i>
+</div>
