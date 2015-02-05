@@ -13,8 +13,5 @@ exports.config = {
   },
   env: {
     baseUrl: 'http://localhost:3444/#'
-  },
-
-  onPrepare: function() {
   }
 };

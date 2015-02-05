@@ -4,7 +4,7 @@ This project is an illustration of the use of [Angular Protractor](http://angula
 
 ## Setup
 
-1. Clone thus repo.
+1. Clone this repo.
 1. Install node.exe if you haven't already. See [here](http://nodejs.org/).
 1. If you don't have gulp installed globally, do so with 
 	```javascript
@@ -29,4 +29,37 @@ The app is a simple screen that presents a search box and a button.  Results are
 ###Search
 ![Search UI](https://raw.githubusercontent.com/mbcooper/ProtractorExample/master/docImages/search1.PNG)
 
-Enter one of the 2 valid search terms: **trees** or **food** and click *Search*.  The results will be display below the search line.
+Enter one of the 2 valid search terms: **trees** or **food** and click *Search*.  The results will be display below the search line.  Ignore the contents.  Its just sample "stuff".
+
+![Search Results](https://raw.githubusercontent.com/mbcooper/ProtractorExample/master/docImages/searchResult.PNG)
+
+We also have 2 validations on the search box.  It has to meet our simple letters-numbers regexp, and be no more than 10 characters.  IF these are violated, we display an *ng-message* like this:
+
+![Error](https://raw.githubusercontent.com/mbcooper/ProtractorExample/master/docImages/errors.PNG)
+
+##Protractor Tests
+So let's dive into the protractor tests, which we find in the **e2e** directory.
+
+###conf.js
+	```javascript
+	exports.config = {
+	seleniumAddress: 'http://localhost:4444/wd/hub',
+	specs: ['**/*.spec.js'],
+	baseUrl: '',
+	capabilities: {
+    'browserName': 'chrome'
+	},
+	jasmineNodeOpts: {
+    showColors: true
+	},
+	env: {
+   	baseUrl: 'http://localhost:3444/#'
+		}
+	};
+	```
+The key items here: are the `seleniumAddress` (which is a default), and the `env.baseUrl`, which is a standard adopted from ngBoilerplate.
+
+###Home.po.js - Our Page Object
+Page Objects let us provide a shim layer between the DOM that is rendered and the tests.  We can re-use the Objects, and we could define a Menu PO (if we had one) that we could mixin to each PO. 
+
+You can see the whole file here, so let's walk through a few of the basics:

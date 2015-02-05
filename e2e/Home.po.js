@@ -55,7 +55,8 @@ HomePage.prototype = Object.create(
 
     allResults: {
       get: function() {
-        return element.all(by.model('home.results'));
+        var bioElement = element.all(by.repeater('bio in home.results'));
+        return bioElement;
       }
     },
 
@@ -72,4 +73,4 @@ HomePage.prototype = Object.create(
   }
 );
 
-module.exports = LoginPage;
+module.exports = HomePage;
