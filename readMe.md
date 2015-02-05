@@ -1,6 +1,6 @@
-#Sample Protractor Project
+#A Working Angular - Protractor Project
 
-This project is a ***working project, an illustration*** of the use of [Angular Protractor](http://angular.github.io/protractor/#/) on a simple Angular project.  It illustrates the use of [Page Objects](http://angular.github.io/protractor/#/page-objects) to abstract the DOM markup from tests, and to encourage re-use.  You'll see the tests are very fluent.
+This project is a ***working project, an illustration*** of the use of [Angular Protractor](http://angular.github.io/protractor/#/) on a simple Angular project.  It illustrates the use of [Page Objects](http://angular.github.io/protractor/#/page-objects) to abstract the DOM markup from tests, and to encourage re-use.  You'll see that the tests are very fluent.
 
 ## Setup
 
@@ -20,8 +20,8 @@ This project is a ***working project, an illustration*** of the use of [Angular 
 	webdriver-manager update
 	```
 	
-Whew!  this gets you a project that will run off a simple home pages that allows a search in a bio database.  
-To simplify things, I serve up the results locally, and only **food** and **trees** are valid search terms.  The point of this sample is show how to test.
+Whew!  this gets you a project that will run a simple home page that allows a search in a magical bio database.  
+To simplify things, I serve up the results locally, and only **food** and **trees** are valid search terms.  (The point of this example is show how to test).
 
 ##The App
 The app is a simple screen that presents a search box and a button.  Results are displayed (if any) below the search
@@ -32,7 +32,7 @@ The app is a simple screen that presents a search box and a button.  Results are
 Enter one of the 2 valid search terms: **trees** or **food** and click *Search*.  The results will be display below the search line.  Ignore the contents.  Its just sample "stuff".
 
 ![Search Results](https://raw.githubusercontent.com/mbcooper/ProtractorExample/master/docImages/searchResult.PNG)
-#####Validation Errors
+#####[Validation Errors](#validation-errors)
 We also have 2 validations on the search box.  It has to meet our simple letters-numbers regexp, and be no more than 10 characters.  IF these are violated, we display an `ng-message` like this:
 
 ![Error](https://raw.githubusercontent.com/mbcooper/ProtractorExample/master/docImages/errors.PNG)
@@ -41,6 +41,7 @@ We also have 2 validations on the search box.  It has to meet our simple letters
 So let's dive into the protractor tests, which we find in the **e2e** directory.
 
 ###conf.js
+We configure our tests to point at our selenium (Protractor) driver and our running app.
 
 ```JavaScript
 	exports.config = {
@@ -62,7 +63,7 @@ So let's dive into the protractor tests, which we find in the **e2e** directory.
 The key items here: are the `seleniumAddress` (which is a default), and the `env.baseUrl`, which is a standard adopted from ngBoilerplate.
 
 ###Home.po.js - Our Page Object
-Page Objects let us provide a shim layer between the DOM that is rendered and the tests.  We can re-use the Objects, and we could define a Menu PO (if we had one) that we could mixin to each PO. 
+Page Objects let us provide a shim layer between the DOM that is rendered and the tests.  This is highly flexible and has the power of finding elements by our Angular models! 
 
 You can see the [whole Page Object file here](https://github.com/mbcooper/ProtractorExample/blob/master/e2e/Home.po.js "Home Page Object"), and the [Home Page Template](https://github.com/mbcooper/ProtractorExample/blob/master/src/app/home/home.tpl.html "template") here, so let's walk through a few of the basics:
 
@@ -135,7 +136,7 @@ Let's proceed to our test spec.
 
 ###Home.spec.js - The Home Page Test
 
-The full test spec is [here](https://github.com/mbcooper/ProtractorExample/blob/master/e2e/Home.spec.js), and we'll focus on building up the parts.
+The full test spec is [here](https://github.com/mbcooper/ProtractorExample/blob/master/e2e/Home.spec.js). We'll focus on building up the parts.
 ####Require the Page Object
 ```JavaScript
 	var HomePage = require('./Home.po.js');
@@ -149,19 +150,6 @@ describe('home Page', function() {
     homePage = new HomePage();
   });
 ```
-
-I've included an object to describe the search term (food), what text we expect (Cocoa), what line that should be on (1) and how many rows we should expect.
-```JavaScript
-
-  var terms = {
-    foodSearch: {
-      search: 'food',
-      lookFor: 'Cocoa',
-      line: 1,
-      count: 3
-    }
-  };
-```
 ####Check the Browser Title
 ```JavaScript
   it('should have a proper page tab', function() {
@@ -172,10 +160,11 @@ I've included an object to describe the search term (food), what text we expect 
     );
   });
 ```
-This simple example stumped me at first until I realized that most of the Page Object return are promises that need to be resolved.  What an easy task!  No `timeouts` or waits.  Protractor handles that all for us and gives us our favorite object -- the [promise](https://www.promisejs.org/).
+This simple example stumped me at first until I realized that most of the Page Object returns are promises that need to be resolved.  What an easy task!  No `timeouts` or waits.  Protractor handles that all for us and gives us our favorite object -- the [promise](https://www.promisejs.org/).
 
 ####Check That Validation Errors are Displayed
 Remember [above](#validation-errors) that we show an `ng-message` when we have validation errors.  We defined these in the Page Object by using the css locator: `by.css('[ng-message="pattern"]')`.  This allows us to write a test to see if the error message ("Numbers or Letters Only") actually appears.
+
 ```JavaScript
   it('should have an error for bad characters', function() {
     var badSearch = '@@';
@@ -184,8 +173,10 @@ Remember [above](#validation-errors) that we show an `ng-message` when we have v
     expect(patternMessage).toContain('Numbers');
   });
 ```
+
 ####Do a Search and Get Answers. Check Number of Responses and Expected Answer
-Now for the grand test.  We'll enter a search term ("food"), click on Search and look for answers.  We'll check to make sure there are 3 rows, and that the word "Cocoa" is in the answer.
+Now for the grand test.  We'll enter a search term ("food"), click on Search and look for answers.  We'll check to make sure there are 3 rows, and that the word "Cocoa" is in the answer.  Remember, many of the responses are promises.
+
 ```JavaScript
   it('should search for food and find length and keyword', function() {
       homePage.enterSearch('food');
@@ -207,7 +198,7 @@ Now for the grand test.  We'll enter a search term ("food"), click on Search and
     }
   );
 ```
-Notice how fluent the test statements are: `enterSearch`, `clickSearch` and `allResults`.  NO matter how the DOM template changes, as long as the model bindings remain the same, we have a stable test. (OK - the button is by `id`).
+Notice how fluent the test statements are: `enterSearch`, `clickSearch` and `allResults`.  No matter how the DOM template changes, as long as the model bindings remain the same, we have a stable test. (OK - the button is by `id`).
 
 If we do change bindings, we only have to change the Page Object once ... all our specs remain stable.
 
@@ -217,18 +208,33 @@ So, fasten your seat belts and let's take Protractor for a test run.
 You will need to be running 3 terminal sessions to run the tests.  I use WebStorm, which makes opening the sessions easy.
 
 1. Terminal 1 runs our app. (Use the default `gulp` task, included in the project.
-```
-	gulp
-```
+	```
+		gulp
+	```
 
 2. Terminal 2 runs the Protractor / Selenium server on port 4444.
-```
-	webdriver-manager update
-```
+	```
+		webdriver-manager update
+	```
 
 3. Terminal 3 runs the protractor tests:
-```
-	protractor e2e/conf.js
-```
+	```
+		protractor e2e/conf.js
+	```
+
+So when we run the tests, we should see the Chrome browser pop up and our test suite run.
+
+![Test Run](https://raw.githubusercontent.com/mbcooper/ProtractorExample/master/docImages/testSuite.PNG)
 
 
+##Ya Baby
+I must say, this has come a long way in the past 2 years that I've been involved with the Angular world.
+
+Are e2e / functional tests the be-all and end-all?  No, but when judiciously combined with effective unit test coverage, you can produce a high quality software product, with tests that can survive a lot of change.
+
+###Can I Test a Deployed Version of the App?
+Darn!  I was afraid your were going to ask that!  Yes!  And No!
+
+If you deployed with debug information off (`$compileProvider.debugInfoEnabled(false);`), you have to instruct Chrome to reload with debug on. (A Guinea for someone who will show us how!)
+
+If not, just point at the deployed site in `e2e/config.js` and run the tests!
