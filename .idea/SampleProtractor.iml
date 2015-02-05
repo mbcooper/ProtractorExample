@@ -8,5 +8,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Node.js v0.10.33 Core Modules" level="application" />
     <orderEntry type="library" name="Nod Local" level="project" />
+    <orderEntry type="library" name="SampleProtractor node_modules" level="project" />
   </component>
 </module>

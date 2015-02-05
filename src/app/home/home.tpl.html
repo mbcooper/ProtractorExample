@@ -14,7 +14,7 @@
                        class="form-control inline"
                        name="searchTerm"
                        ng-minlength="1"
-                       ng-maxlength="20"
+                       ng-maxlength="10"
                        ng-pattern="home.searchPattern"
                        ng-model="home.search"
                        id="searchTerm" placeholder="Food or trees">
@@ -27,7 +27,7 @@
                 <div ng-messages="search.searchTerm.$error">
                     <div class="error"
                          ng-message="maxlength">
-                        Cannot Exceed 20 characters
+                        Cannot Exceed 10 characters
                     </div>
                     <div class="error"
                          ng-message="pattern">
