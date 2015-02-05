@@ -27,3 +27,6 @@ To simplify things, I serve up the results locally, and only **food** and **tree
 The app is a simple screen that presents a search box and a button.  Results are displayed (if any) below the search
 
 ###Search
+![Search UI](https://raw.githubusercontent.com/mbcooper/ProtractorExample/master/docImages/search1.PNG)
+
+Enter one of the 2 valid search terms: **trees** or **food** and click *Search*.  The results will be display below the search line.
