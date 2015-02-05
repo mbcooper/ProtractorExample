@@ -15,13 +15,6 @@ describe('home Page', function() {
       lookFor: 'Cocoa',
       line: 1,
       count: 3
-
-    },
-    treeSearch: {
-      code: 'trees',
-      lookFor: 'Hogenom',
-      line: 2,
-      count: 21
     }
   };
 
@@ -30,7 +23,6 @@ describe('home Page', function() {
   });
 
   it('should have a proper page tab', function() {
-
     var viewName = homePage.viewTitle;
     viewName.then(function(viewTitle) {
         expect(viewTitle).toEqual('Protractor Sample')
@@ -56,6 +48,19 @@ describe('home Page', function() {
 
   });
 
+  it('should search for food and get answers', function() {
+      var food = terms.foodSearch;
+      homePage.enterSearch(food.search);
+      homePage.clickSearch().then(
+        function() {
+          var allElements = homePage.allResults;
+          allElements.then(function(results) {
+            expect(results).not.toBeNull();
+          });
+        });
+    }
+  );
+
   it('should search for food and find length and keyword', function() {
       var food = terms.foodSearch;
       homePage.enterSearch(food.search);
@@ -64,7 +69,6 @@ describe('home Page', function() {
           var allElements = homePage.allResults;
           allElements.then(function(results) {
 
-            expect(results).not.toBeNull();
             expect(results.length).toEqual(food.count);
 
             var target = results[food.line - 1];
