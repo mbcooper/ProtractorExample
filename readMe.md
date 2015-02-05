@@ -190,7 +190,7 @@ Now for the grand test.  We'll enter a search term ("food"), click on Search and
             var target = results[food.line - 1];
             target.getText().then(function(text) {
 
-              expect(text).toContain('Cocoa);
+              expect(text).toContain('Cocoa');
             });
 
           });
