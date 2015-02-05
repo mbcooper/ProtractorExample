@@ -62,4 +62,5 @@ The key items here: are the `seleniumAddress` (which is a default), and the `env
 ###Home.po.js - Our Page Object
 Page Objects let us provide a shim layer between the DOM that is rendered and the tests.  We can re-use the Objects, and we could define a Menu PO (if we had one) that we could mixin to each PO. 
 
-You can see the whole file here, so let's walk through a few of the basics:
+You can see the [whole file here](https://github.com/mbcooper/ProtractorExample/blob/master/e2e/Home.po.js "Home Page Object"), so let's walk through a few of the basics:
+

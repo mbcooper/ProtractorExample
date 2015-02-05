@@ -56,21 +56,22 @@ describe('home Page', function() {
 
   });
 
-  it('should search for food', function() {
+  it('should search for food and find length and keyword', function() {
       var food = terms.foodSearch;
       homePage.enterSearch(food.search);
       homePage.clickSearch().then(
         function() {
           var allElements = homePage.allResults;
-          console.log('ae fns>' + _.functions(allElements));
-          console.log('>' + JSON.stringify(allElements));
           allElements.then(function(results) {
 
             expect(results).not.toBeNull();
-            expect(results.length).toEqual(food.count)
+            expect(results.length).toEqual(food.count);
 
-            var target = results[food.line];
-            console.log('> the 1' + JSON.stringify(target));
+            var target = results[food.line - 1];
+            target.getText().then(function(text) {
+
+              expect(text).toContain(food.lookFor);
+            });
 
           });
         });
