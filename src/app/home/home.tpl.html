@@ -25,11 +25,11 @@
                         type="button">Search
                 </button>
                 <div ng-messages="search.searchTerm.$error">
-                    <div class="error"
+                    <div class="alert alert-warning"
                          ng-message="maxlength">
                         Cannot Exceed 10 characters
                     </div>
-                    <div class="error"
+                    <div class="alert alert-warning"
                          ng-message="pattern">
                         Numbers and Letters Only
                     </div>
