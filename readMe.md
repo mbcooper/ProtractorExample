@@ -214,7 +214,7 @@ You will need to be running 3 terminal sessions to run the tests.  I use WebStor
 
 2. Terminal 2 runs the Protractor / Selenium server on port 4444.
 	```
-		webdriver-manager update
+		webdriver-manager start
 	```
 
 3. Terminal 3 runs the protractor tests:
