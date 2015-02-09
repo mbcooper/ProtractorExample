@@ -233,8 +233,8 @@ I must say, this has come a long way in the past 2 years that I've been involved
 Are e2e / functional tests the be-all and end-all?  No, but when judiciously combined with effective unit test coverage, you can produce a high quality software product, with tests that can survive a lot of change.
 
 ###Can I Test a Deployed Version of the App?
-Darn!  I was afraid your were going to ask that!  Yes!  And No!
+Darn!  I was afraid your were going to ask that!  Yes!
 
-If you deployed with debug information off (`$compileProvider.debugInfoEnabled(false);`), you have to instruct Chrome to reload with debug on. (A Guinea for someone who will show us how!)
+If you deployed with debug information off (`$compileProvider.debugInfoEnabled(false);`), Protractor ([as of version 1.6.1](https://github.com/angular/protractor/commit/41d8128c6ed39ca3c527f6282ed97373d19144db?diff=split)) will add in the debug informartion if you excluded it on your deployment (and you should). 
 
-If not, just point at the deployed site in `e2e/config.js` and run the tests!
+Just point at the deployed site in `e2e/config.js` and run the tests!
