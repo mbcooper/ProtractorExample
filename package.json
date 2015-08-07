@@ -26,7 +26,7 @@
     "gulp-concat": "^2.4.2",
     "gulp-connect": "^2.2.0",
     "gulp-copy": "0.0.2",
-    "gulp-express": "^0.1.7",
+    "gulp-express": "~0.3.x",
     "gulp-html2js": "~0.2.0",
     "gulp-htmlmin": "~1.0.x",
     "gulp-ignore": "~1.2.1",
