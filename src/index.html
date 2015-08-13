@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 
-<html ng-app="sampleProtractor"
+<html ng-app="sampleProtractor" ng-controller="Sample">
 
-      ng-controller="Sample">
 <head>
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/assets/images/favicon.ico"
-          type="image/x-icon">
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title >
-        Protractor Sample</title>
-    <meta name="description" content="Sample Protractor Demonstration"/>
+  <title>Protractor Sample</title>
+  <meta name="description" content="Sample Protractor Demonstration" />
 
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <!-- inject:css -->
-    <!-- endinject -->
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- inject:css -->
+  <!-- endinject -->
 </head>
 
 <body style="min-width: 1024px;">
-<!--[if lt IE 11]><h1>This site requires IE 11 or greater.</h1>
-<![endif]-->
-<div ui-view="header" ></div>
-<div ui-view="nav" autoscroll='false'></div>
-<div class="container-fluid">
-    <div ui-view="content" id="main_content" class="row"
-         autoscroll='false'></div>
+  <!--[if lt IE 11]><h1>This site requires IE 11 or greater.</h1><![endif]-->
+  <div ui-view="header"></div>
+  <div ui-view="nav" autoscroll='false'></div>
+
+  <div class="container-fluid">
+    <div ui-view="content" id="main_content" class="row" autoscroll='false'></div>
     <div ui-view="footer" autoscroll='false'></div>
+  </div>
 
-</div>
-<% files.forEach( function ( file ) { %>
-<script type="text/javascript" src="<%= file %>"></script>
-<% }); %><!-- compiled JavaScript -->
+  <% files.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script>
+  <% }); %>
 
-<!-- inject:js -->
-<!-- endinject -->
+  <!-- compiled JavaScript -->
+  <!-- inject:js -->
+  <!-- endinject -->
 </body>
-
 </html>

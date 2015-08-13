@@ -5,26 +5,56 @@ This project is a ***working project, an illustration*** of the use of [Angular 
 ## Setup
 
 1. Clone this repo.
-1. Install node.exe if you haven't already. See [here](http://nodejs.org/).
-1. If you don't have gulp installed globally, do so with 
+1. Install Node.js® if you haven't already. See more on [official Node.js® website](http://nodejs.org/).
+    
+    On OS X you can install Node.js® just by typing
+    
+    ```
+    brew update
+    brew install node
+    ```
+    
+    Don't have Homebrew on OS X? 
+    
+    ```
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ```
+    
+    More on official [Homebrew website](http://brew.sh/).
+    
+1. Install node global dependencies 
+	
 	```
 	npm install -g gulp-cli
+	npm install -g jscs
+	npm install -g protractor
 	```
-1. In the directory where you placed the project, set up the node modules.
+	
+1. In the directory where you placed the project, install all project's dependencies
+
 	```
 	npm install
 	```
-1. You need to update the protractor and the selenium drivers
+
+1. You need to update selenium webdrivers
+
 	```
-	npm install -g protractor
 	webdriver-manager update
 	```
-	
-Whew!  this gets you a project that will run a simple home page that allows a search in a magical bio database.  
-To simplify things, I serve up the results locally, and only **food** and **trees** are valid search terms.  (The point of this example is show how to test).
+
+1. Finally, run project by typing
+
+    ```
+    gulp
+    ```
+
+Whew! This gets you a project that will run a simple home page that allows a search in a magical bio database.
+To simplify things, I serve up the results locally, and only **food** and **trees** are valid search terms.
+(The point of this example is show how to test).
 
 ##The App
-The app is a simple screen that presents a search box and a button.  Results are displayed (if any) below the search
+The app is a simple screen that presents a search box and a button.
+Results are displayed (if any) below the search
 
 ###Search
 ![Search UI](https://raw.githubusercontent.com/mbcooper/ProtractorExample/master/docImages/search1.PNG)

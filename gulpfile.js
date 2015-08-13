@@ -22,7 +22,7 @@ var orderedStream = require('stream-series');
 var inject = require('gulp-inject');
 var rename = require('gulp-rename');
 var util = require('gulp-util');
-var server = require('gulp-express');
+var gls = require('gulp-live-server');
 
 // local references
 var config = require('./config/buildConfig.js');
@@ -129,30 +129,26 @@ gulp.task(
  * express server setup
  */
 gulp.task('serverExpress', function() {
-  // Start the server at the beginning of the task
-  server.run({
-    file: 'server/gulpExpress.js'
-  });
+  var server = gls.new('server/index.js');
+
+  function serverNotify(event) {
+    server.notify.call(server, event);
+  }
+
+  server.start();
 
   // Restart the server when file changes
-  gulp.watch(
-    [
-      config.buildDirectory + '/**/index*.html',
-      config.buildDirectory + '/src/**/*.js',
-      config.buildDirectory + '/templates-*.js'
-    ], server.notify);
+  gulp.watch([
+    config.buildDirectory + '/**/index*.html',
+    config.buildDirectory + '/src/**/*.js',
+    config.buildDirectory + '/templates-*.js'
+  ], serverNotify);
 
-  gulp.watch([config.buildDirectory + '/**/*.css'], function(event) {
-
-    server.notify(event);
-    //pipe support is added for server.notify since v0.1.5,
-    //see https://github.com/gimm/gulp-express#servernotifyevent
+  gulp.watch([config.buildDirectory + '/**/*.css'], serverNotify);
+  gulp.watch([config.buildDirectory + 'assets/images/**/*'], serverNotify);
+  gulp.watch(['server/index.js'], function() {
+    server.start.call(server);
   });
-
-  gulp.watch([config.buildDirectory + 'assets/images/**/*'],
-    server.notify);
-  gulp.watch(['server/gulpExpress.js'],
-    [server.run]);
 });
 
 /**
