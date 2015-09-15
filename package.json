@@ -35,6 +35,7 @@
     "gulp-jshint": "~1.9.0",
     "gulp-karma": "~0.0.4",
     "gulp-less": "~3.0.x",
+    "gulp-live-server": "0.0.28",
     "gulp-livereload": "~3.4.x",
     "gulp-merge": "~0.1.0",
     "gulp-minify-css": "~0.3.11",
